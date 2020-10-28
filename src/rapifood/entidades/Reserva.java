@@ -9,38 +9,56 @@ import java.time.LocalTime;
 public class Reserva {
     private int idReserva;
     private Mesa mesa;
-    private int dni;
-    private String nombre;
-    private String apellido;
+    private int dniCliente;
+    private String nombreCliente;
+    private String apellidoCliente;
     private LocalDate fecha;
     private LocalTime hora;
-    private LocalDateTime fechaHora;
+    private LocalDateTime fechaReserva;
     private boolean estadoReserva;
+    private LocalDateTime fechaAhora;
 
     public Reserva(int idReserva, Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva) {
         this.idReserva = idReserva;
         this.mesa = mesa;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.dniCliente = dni;
+        this.nombreCliente = nombre;
+        this.apellidoCliente = apellido;
         this.fecha = fecha;
         this.hora = hora;
         this.estadoReserva = estadoReserva;
-        this.fechaHora= LocalDateTime.of(fecha,hora);
+        this.fechaReserva= LocalDateTime.of(fecha,hora);
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaAhora=LocalDateTime.of(hoy,ahora);
     }
 
     public Reserva() {
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaAhora=LocalDateTime.of(hoy,ahora);
     }
 
     public Reserva(Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva) {
         this.mesa = mesa;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.dniCliente = dni;
+        this.nombreCliente = nombre;
+        this.apellidoCliente = apellido;
         this.fecha = fecha;
         this.hora = hora;
         this.estadoReserva = estadoReserva;
-        this.fechaHora= LocalDateTime.of(fecha,hora);
+        this.fechaReserva= LocalDateTime.of(fecha,hora);
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaAhora=LocalDateTime.of(hoy,ahora);
+    }
+
+    public LocalDateTime getFechaAhora() {
+        return fechaAhora;
+    }
+
+    public void setFechaAhora(LocalDateTime fechaAhora) {
+        this.fechaAhora = fechaAhora;
     }
 
     public Reserva(int idReserva) {
@@ -63,28 +81,28 @@ public class Reserva {
         this.mesa = mesa;
     }
 
-    public int getDni() {
-        return dni;
+    public int getDniCliente() {
+        return dniCliente;
     }
 
-    public void setDni(int dni) {
-        this.dni = dni;
+    public void setDniCliente(int dni) {
+        this.dniCliente = dni;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombreCliente = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidoCliente() {
+        return apellidoCliente;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidoCliente(String apellido) {
+        this.apellidoCliente = apellido;
     }
 
     public LocalDate getFecha() {
@@ -103,12 +121,12 @@ public class Reserva {
         this.hora = hora;
     }
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
+    public LocalDateTime getFechaReserva() {
+        return fechaReserva;
     }
 
-    public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
+    public void setFechaReserva(LocalDateTime fechaHora) {
+        this.fechaReserva = fechaHora;
     }
 
     public boolean isEstadoReserva() {

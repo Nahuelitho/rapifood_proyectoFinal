@@ -1,11 +1,16 @@
 package rapifood.entidades;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 public class Pedido {
     private Mesa mesa;
     private Mesero mesero;
     private int idPedido;
     private double montoTotal;
     private boolean estadoPedido;
+    private LocalDateTime fechaPedido;
 
     public Pedido(Mesa mesa, Mesero mesero, int idPedido, double montoTotal, boolean estadoPedido) {
         this.mesa = mesa;
@@ -13,6 +18,9 @@ public class Pedido {
         this.idPedido = idPedido;
         this.montoTotal = montoTotal;
         this.estadoPedido = estadoPedido;
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaPedido=LocalDateTime.of(hoy,ahora);
     }       
     
     public Pedido(Mesa mesa, Mesero mesero, double montoTotal, boolean estadoPedido) {
@@ -20,13 +28,22 @@ public class Pedido {
         this.mesero = mesero;
         this.montoTotal = montoTotal;
         this.estadoPedido = estadoPedido;
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaPedido=LocalDateTime.of(hoy,ahora);
     }
     
     public Pedido(int idPedido) {
         this.idPedido = idPedido;
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaPedido=LocalDateTime.of(hoy,ahora);
     }
     
     public Pedido() {
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaPedido=LocalDateTime.of(hoy,ahora);
     }
 
     public Mesa getMesa() {
