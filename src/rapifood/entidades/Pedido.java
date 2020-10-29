@@ -8,25 +8,22 @@ public class Pedido {
     private Mesa mesa;
     private Mesero mesero;
     private int idPedido;
-    private double montoTotal;
     private boolean estadoPedido;
     private LocalDateTime fechaPedido;
 
-    public Pedido(Mesa mesa, Mesero mesero, int idPedido, double montoTotal, boolean estadoPedido) {
+    public Pedido(Mesa mesa, Mesero mesero, int idPedido, boolean estadoPedido) {
         this.mesa = mesa;
         this.mesero = mesero;
         this.idPedido = idPedido;
-        this.montoTotal = montoTotal;
         this.estadoPedido = estadoPedido;
         LocalTime ahora = LocalTime.now();
         LocalDate hoy = LocalDate.now();
         fechaPedido=LocalDateTime.of(hoy,ahora);
     }       
     
-    public Pedido(Mesa mesa, Mesero mesero, double montoTotal, boolean estadoPedido) {
+    public Pedido(Mesa mesa, Mesero mesero, boolean estadoPedido) {
         this.mesa = mesa;
         this.mesero = mesero;
-        this.montoTotal = montoTotal;
         this.estadoPedido = estadoPedido;
         LocalTime ahora = LocalTime.now();
         LocalDate hoy = LocalDate.now();
@@ -70,20 +67,16 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public double getMontoTotal() {
-        return montoTotal;
-    }
-
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
-    }
-
     public boolean isEstadoPedido() {
         return estadoPedido;
     }
 
     public void setEstadoPedido(boolean estadoPedido) {
         this.estadoPedido = estadoPedido;
+    }
+
+    public LocalDateTime getFechaPedido() {
+        return fechaPedido;
     }
     
     

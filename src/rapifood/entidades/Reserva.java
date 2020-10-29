@@ -17,8 +17,9 @@ public class Reserva {
     private LocalDateTime fechaReserva;
     private boolean estadoReserva;
     private LocalDateTime fechaAhora;
+    private int cantidadCliente;
 
-    public Reserva(int idReserva, Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva) {
+    public Reserva(int idReserva, Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva, int cantidadCliente) {
         this.idReserva = idReserva;
         this.mesa = mesa;
         this.dniCliente = dni;
@@ -31,6 +32,7 @@ public class Reserva {
         LocalTime ahora = LocalTime.now();
         LocalDate hoy = LocalDate.now();
         fechaAhora=LocalDateTime.of(hoy,ahora);
+        this.cantidadCliente=cantidadCliente;
     }
 
     public Reserva() {
@@ -39,7 +41,7 @@ public class Reserva {
         fechaAhora=LocalDateTime.of(hoy,ahora);
     }
 
-    public Reserva(Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva) {
+    public Reserva(Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, LocalTime hora, boolean estadoReserva, int cantidadCliente) {
         this.mesa = mesa;
         this.dniCliente = dni;
         this.nombreCliente = nombre;
@@ -51,6 +53,7 @@ public class Reserva {
         LocalTime ahora = LocalTime.now();
         LocalDate hoy = LocalDate.now();
         fechaAhora=LocalDateTime.of(hoy,ahora);
+        this.cantidadCliente=cantidadCliente;
     }
 
     public LocalDateTime getFechaAhora() {
@@ -93,7 +96,7 @@ public class Reserva {
         return nombreCliente;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombreCliente(String nombre) {
         this.nombreCliente = nombre;
     }
 
@@ -136,6 +139,13 @@ public class Reserva {
     public void setEstadoReserva(boolean estadoReserva) {
         this.estadoReserva = estadoReserva;
     }
-    
+
+    public int getCantidadCliente() {
+        return cantidadCliente;
+    }
+
+    public void setCantidadCliente(int cantidadCliente) {
+        this.cantidadCliente = cantidadCliente;
+    }
     
 }
