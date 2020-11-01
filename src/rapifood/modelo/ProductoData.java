@@ -70,6 +70,26 @@ public class ProductoData {
         }
          return productos;
     }
+    public List<Producto> obtenerProductosDisponibles(){
+        Producto p;
+        List<Producto>productos=new ArrayList<>();
+        String sql="SELECT * FROM producto WHERE estado_producto=1 ";
+         try{
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+            p= new Producto();
+            p.setIdProducto(rs.getInt(1));
+            p.setNombreProducto(rs.getString(2));
+            p.setPrecio(rs.getDouble(3));
+            p.setEstadoProducto(rs.getBoolean(4));
+            productos.add(p);
+        }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"Error al obtener productos");
+        }
+         return productos;
+    }
         public void actualizarProducto(Producto producto){
         String sql="UPDATE producto SET nombre_producto =? ,precio_producto =? , estado_producto =? WHERE id_producto=?";
       try{

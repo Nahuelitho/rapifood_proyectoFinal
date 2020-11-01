@@ -15,6 +15,7 @@ public class RapiFood {
         ProductoData pd = new ProductoData(c);
         List<Producto>lprod=new ArrayList<>();
         //pd.DarDeBajaProducto(1);
+        //lprod.addAll(pd.obtenerProductosDisponibles());
         //lprod.addAll(pd.obtenerProductos());
         //System.out.println(lprod);
         //pd.guardarProducto(p);
