@@ -39,6 +39,18 @@ public class RapiFood {
        //System.out.println(lismesa);
        //md.darBajaMesa(3);
        //md.darAltaMesa(3);
+       
+        //-----------Prueba Mesero---------------
+        Mesero m = new Mesero(41272923,151,"Nahuel","vargas",true);
+        MeseroData md = new MeseroData(c);
+        //md.guardarMesero(m);
+        //m=md.buscarMesero(3);
+        //System.out.println(m);
+        //List<Mesero>meseros = new ArrayList<>();
+        //meseros.addAll(md.obtenerMeseros());
+        //System.out.println(meseros);
+        //m.setNombre("juan");
+        //md.actualizarMesero(m);
         
     }
 }
