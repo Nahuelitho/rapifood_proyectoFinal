@@ -11,6 +11,10 @@ public class Pedido {
     private boolean estadoPedido;
     private LocalDateTime fechaPedido;
 
+    public void setFechaPedido(LocalDateTime fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
     public Pedido(Mesa mesa, Mesero mesero, int idPedido, boolean estadoPedido) {
         this.mesa = mesa;
         this.mesero = mesero;
@@ -41,6 +45,10 @@ public class Pedido {
         LocalTime ahora = LocalTime.now();
         LocalDate hoy = LocalDate.now();
         fechaPedido=LocalDateTime.of(hoy,ahora);
+    }
+
+    public Pedido(Mesero mesero, Mesa mesa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Mesa getMesa() {
@@ -78,6 +86,12 @@ public class Pedido {
     public LocalDateTime getFechaPedido() {
         return fechaPedido;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido{" + "mesa=" + mesa + ", mesero=" + mesero + ", idPedido=" + idPedido + ", estadoPedido=" + estadoPedido + ", fechaPedido=" + fechaPedido + '}';
+    }
+    
     
     
 }
