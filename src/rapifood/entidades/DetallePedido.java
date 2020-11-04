@@ -24,11 +24,11 @@ public class DetallePedido {
         this.idDetalle = idDetalle;
     }
 
-    public DetallePedido(Pedido pedido, Producto producto, int cantidad, double monto) {
+    public DetallePedido(Pedido pedido, Producto producto, int cantidad) {
         this.pedido = pedido;
         this.producto = producto;
         this.cantidad = cantidad;
-        this.monto = monto;
+        this.monto = producto.getPrecio()*cantidad;
     }
 
     public int getIdDetalle() {
@@ -61,6 +61,7 @@ public class DetallePedido {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+        this.monto= producto.getPrecio()*cantidad;
     }
 
     public double getMonto() {
@@ -69,6 +70,11 @@ public class DetallePedido {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+
+    @Override
+    public String toString() {
+        return "DetallePedido{" + "idDetalle=" + idDetalle + ", pedido=" + pedido + ", producto=" + producto + ", cantidad=" + cantidad + ", monto=" + monto + '}';
     }
     
 }
