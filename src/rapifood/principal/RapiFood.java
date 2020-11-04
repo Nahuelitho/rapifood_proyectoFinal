@@ -1,5 +1,7 @@
 package rapifood.principal;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 import rapifood.entidades.*;
 import rapifood.modelo.*;
@@ -34,8 +36,17 @@ public class RapiFood {
         //System.out.println(lismesa);
         //lismesa.addAll(md.obtenerMesas());
         //System.out.println(lismesa);
-        //md.darBajaMesa(3);
+        //md.darBajaMesa(3)
         //md.darAltaMesa(3);
+        //m= md.buscarMesa(5);
+        //Reserva r = new Reserva(m,25456516, "joni", "salas", LocalDate.of(2020, 10,30), LocalTime.of(00, 00, 00),true, 3);
+        //ReservaData rd = new ReservaData(c);
+        //List<Reserva> lr = new ArrayList<>();
+        //rd.registrarReserva(r);
+        //rd.actualizarReserva(r);
+        //rd.buscarReservaXFecha(LocalDateTime.of(LocalDate.of(2020, 10,30),LocalTime.of(12, 30, 0)));
+        //rd.darBajaReserva(2);
+        //System.out.println(rd.obtenerReservasXEstado());
 
         //-----------Prueba Mesero---------------
        // Mesero m = new Mesero(41272923,151,"Nahuel","vargas",true);
@@ -68,13 +79,13 @@ public class RapiFood {
          // pd.darBajaPedido(2);
          
      //-----------Prueba DetallePedido------------------  
-     DetallePedido detallepedido= new DetallePedido();
-     DetallePedidoData dpd=new DetallePedidoData(c);
+     //DetallePedido detallepedido= new DetallePedido();
+     //DetallePedidoData dpd=new DetallePedidoData(c);
      //List<DetallePedido> lista = new ArrayList<>();
      //lista.addAll(dpd.ObtenerDetallesXPedido(1));
       //  System.out.println(lista);
-    detallepedido=dpd.buscarDetalle(1);
-    detallepedido.setCantidad(2);
-    dpd.actualizarDetalle(detallepedido);
+    //detallepedido=dpd.buscarDetalle(1);
+    //detallepedido.setCantidad(2);
+    //dpd.actualizarDetalle(detallepedido);
     }
 }

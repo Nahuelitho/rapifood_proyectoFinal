@@ -56,6 +56,13 @@ public class Reserva {
         this.cantidadCliente=cantidadCliente;
     }
 
+    public Reserva(Mesa mesa) {
+        this.mesa = mesa;
+        LocalTime ahora = LocalTime.now();
+        LocalDate hoy = LocalDate.now();
+        fechaAhora=LocalDateTime.of(hoy,ahora);
+    }
+
     public LocalDateTime getFechaAhora() {
         return fechaAhora;
     }
@@ -146,6 +153,11 @@ public class Reserva {
 
     public void setCantidadCliente(int cantidadCliente) {
         this.cantidadCliente = cantidadCliente;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserva{" + "idReserva=" + idReserva + ", mesa=" + mesa + ", dniCliente=" + dniCliente + ", nombreCliente=" + nombreCliente + ", apellidoCliente=" + apellidoCliente  + ", fechaReserva=" + fechaReserva + ", estadoReserva=" + estadoReserva + ", fechaAhora=" + fechaAhora + ", cantidadCliente=" + cantidadCliente + '}';
     }
     
 }
