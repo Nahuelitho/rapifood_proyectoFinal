@@ -208,14 +208,16 @@ public class ReservaData {
          }
     }
     
-    public List<Reserva> buscarReservaXFecha(LocalDateTime fecha){
+    public List<Reserva> buscarReservaXFecha(LocalDate fecha){
        List<Reserva> reservas = new ArrayList<>();
        Reserva res=null;   
-       String sql="SELECT * FROM reserva WHERE reserva.fecha_reserva=?";
+       String sql="SELECT * FROM reserva WHERE date(fecha_reserva)=?";
        
+       //String fechastr = fecha.toString();
        try{
            PreparedStatement ps = con.prepareStatement(sql);
-           ps.setTimestamp(1, java.sql.Timestamp.valueOf(fecha));
+           //ps.setString(1, fechastr);
+           ps.setDate(1, java.sql.Date.valueOf(fecha));
            ResultSet rs = ps.executeQuery();
            
            while(rs.next()){
@@ -223,7 +225,6 @@ public class ReservaData {
                res.setIdReserva(rs.getInt(1));
                Mesa m =buscarMesa(rs.getInt(2));      
                res.setMesa(m);
-               res.getMesa().setIdMesa(rs.getInt(2));
                res.setDniCliente(rs.getInt(3));
                res.setNombreCliente(rs.getString(4));
                res.setApellidoCliente(rs.getString(5));

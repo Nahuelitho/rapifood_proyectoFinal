@@ -2,6 +2,7 @@ package rapifood.principal;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.*;
 import rapifood.entidades.*;
 import rapifood.modelo.*;
@@ -24,11 +25,11 @@ public class RapiFood {
         //pd.actualizarProducto(p);
         //System.out.println(p);
         //----------------------------prueba MesaData--------------------------//
-      // MesaData md = new MesaData(c);
-      // Mesa m= new Mesa();
-      // m.setCapacidadMaxima(3);
-      // m.setEstadoMesa(true);
-      // md.guardarMesa(m);
+       //MesaData md = new MesaData(c);
+       Mesa m= new Mesa();
+      //m.setCapacidadMaxima(3);
+       //m.setEstadoMesa(true);
+       //md.guardarMesa(m);
         //md.buscarMesa(2);
         //md.borrarMesa(1);
         //List<Mesa>lismesa=new ArrayList<>();
@@ -39,12 +40,14 @@ public class RapiFood {
         //md.darBajaMesa(3)
         //md.darAltaMesa(3);
         //m= md.buscarMesa(5);
-        //Reserva r = new Reserva(m,25456516, "joni", "salas", LocalDate.of(2020, 10,30), LocalTime.of(00, 00, 00),true, 3);
-        //ReservaData rd = new ReservaData(c);
+        //--------------Prueba ReservaData----------------------
+        Reserva r = new Reserva(m,25456516, "joni", "salas", LocalDate.of(2020, 10,30), LocalTime.of(00, 00, 00),true, 3);
+        ReservaData rd = new ReservaData(c);
         //List<Reserva> lr = new ArrayList<>();
         //rd.registrarReserva(r);
         //rd.actualizarReserva(r);
-        //rd.buscarReservaXFecha(LocalDateTime.of(LocalDate.of(2020, 10,30),LocalTime.of(12, 30, 0)));
+        //rd.buscarReservaXFecha("'2020-11-05'");
+        System.out.println(rd.buscarReservaXFecha(LocalDate.of(2020, 11,5)));
         //rd.darBajaReserva(2);
         //System.out.println(rd.obtenerReservasXEstado());
 
