@@ -2,6 +2,7 @@ package rapifood.modelo;
 
 import java.awt.HeadlessException;
 import java.sql.*;
+import java.time.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import rapifood.entidades.*;
@@ -178,15 +179,15 @@ public class PedidoData {
     
     
     
-}
 
-    /*public List<Pedido> buscarPedidoXMesero(int id) {
+
+    public List<Pedido> buscarPedidoXMesero(LocalDate fecha) {
         Pedido pedido = null;
         ArrayList<Pedido> pedidoLista = new ArrayList<>();
-        String sql = "SELECT * FROM pedido WHERE pedido.id_pedido=?";
+        String sql = "SELECT p.* FROM pedido p , mesero m WHERE p.id_mesero=m.id_mesero AND DATE(p.fecha_pedido)=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setDate(1,java.sql.Date.valueOf(fecha));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 pedido = new Pedido();
@@ -196,7 +197,8 @@ public class PedidoData {
                 pedido.setMesero(mesero);
                 pedido.setMesa(mesa);
                 pedido.setEstadoPedido(rs.getBoolean(4));
-                JOptionPane.showMessageDialog(null, "Pedido encontrado");
+                pedido.setFechaPedido(rs.getTimestamp(5).toLocalDateTime());
+                //JOptionPane.showMessageDialog(null, "Pedido encontrado");
                 pedidoLista.add(pedido);
             }
             rs.close();
@@ -208,11 +210,51 @@ public class PedidoData {
         return pedidoLista;
         }
     
-    public List<Pedido> buscarPedidoXMesa(int id){
-    Pedido pedido=null;
-    ArrayList<Pedido> pedidoLista = new ArrayList<>();
-    String sql = "SELECT * FROM pedido WHERE pedido.id_pedido=?";
+    public void buscarPedidoXMesa(LocalDate fecha){
+    String sql = "SELECT p.* , dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
     try{
-        PreparedStatement ps = con.prepareStatemeent
-    }catch(){}
-    }*/
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setDate(1, java.sql.Date.valueOf(fecha));
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            System.out.println(rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getInt(3)+" "+rs.getBoolean(4)+" "+rs.getTimestamp(5)+" "+rs.getDouble(6));
+        }
+    }catch(HeadlessException | SQLException e){
+    
+    JOptionPane.showMessageDialog(null, "Pedido no encontrado");
+    }
+    }
+    public Map<Double,Pedido> buscarPedidoXMeseroTest(LocalDate fecha) {
+        Pedido pedido = null;
+        double numero;
+        Map<Double,Pedido> pedidoLista = new HashMap<>();
+        String sql = "SELECT p.* , dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1,java.sql.Date.valueOf(fecha));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                pedido = new Pedido();
+                pedido.setIdPedido(rs.getInt(1));
+                Mesero mesero=buscarMesero(rs.getInt(2));
+                Mesa mesa=buscarMesa(rs.getInt(3));
+                pedido.setMesero(mesero);
+                pedido.setMesa(mesa);
+                pedido.setEstadoPedido(rs.getBoolean(4));
+                pedido.setFechaPedido(rs.getTimestamp(5).toLocalDateTime());
+                //JOptionPane.showMessageDialog(null, "Pedido encontrado");
+                numero=rs.getDouble(6);
+                //System.out.println(pedido);
+               // System.out.println(numero);
+               
+               pedidoLista.put(numero,pedido);
+            }
+            rs.close();
+            ps.close();
+        }
+        catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, "Pedido no encontrado");
+                    }
+        return pedidoLista;
+        }
+}

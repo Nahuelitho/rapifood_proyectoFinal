@@ -9,19 +9,19 @@ public class RapiFood {
 
     public static void main(String[] args) {
         Conexion c = new Conexion();
-     //   Producto producto = new Producto();
-     //   ProductoData pd = new ProductoData(c);
+       //Producto producto = new Producto("Gatorade",120,true);
+       //ProductoData pd = new ProductoData(c);
         //List<Producto>lprod=new ArrayList<>();
-        //pd.DarDeBajaProducto(1);
+       // pd.DarDeBajaProducto(1);
         //lprod.addAll(pd.obtenerProductosDisponibles());
-        //lprod.addAll(pd.obtenerProductos());
-        //System.out.println(lprod);
-        //pd.guardarProducto(p);
+       // lprod.addAll(pd.obtenerProductos());
+       // System.out.println(lprod);
+       // pd.guardarProducto(producto);
        // producto=pd.buscarProducto(1);
-        //p.setEstadoProducto(true);
-        //p.setPrecio(90);
-        //pd.actualizarProducto(p);
-        //System.out.println(p);
+       // producto.setEstadoProducto(true);
+       // producto.setPrecio(90);
+       // pd.actualizarProducto(producto);
+       // System.out.println(producto);
         //----------------------------prueba MesaData--------------------------//
       //MesaData md = new MesaData(c);
        //Mesa m= new Mesa();
@@ -66,15 +66,19 @@ public class RapiFood {
         //System.out.println(meseros);
         //m.setNombre("juan");
         //md.actualizarMesero(m);
-        //-----------Prueba pedido------------------
+        //-----------Prueba mesa------------------
        // MesaData md = new MesaData(c);
        // Mesa mesa= new Mesa();       
        // Mesero mesero = new Mesero();
        // MeseroData meserodata = new MeseroData(c);        
        // mesa=md.buscarMesa(1);
        // mesero=meserodata.buscarMesero(1);
+       //-----------Prueba pedido------------------
         //Pedido p = new Pedido(mesa,mesero,true);
-      //  PedidoData pedidodata = new PedidoData(c);
+        PedidoData pedidodata = new PedidoData(c);
+       // pedidodata.buscarPedidoXMesa(LocalDate.of(2020,11,07));
+       System.out.println(pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).toString().replaceAll(",", "\n"));
+      //System.out.println(pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).values()+" "+pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).keySet());
        // pd.guardarPedido(p);
      //   Pedido pedido = new Pedido();
       //  pedido=pedidodata.buscarPedido(1);
@@ -86,13 +90,14 @@ public class RapiFood {
          // pd.darBajaPedido(2);
          
      //-----------Prueba DetallePedido------------------  
-     //DetallePedido detallepedido= new DetallePedido();
-     //DetallePedidoData dpd=new DetallePedidoData(c);
-     //List<DetallePedido> lista = new ArrayList<>();
-     //lista.addAll(dpd.ObtenerDetallesXPedido(1));
-      //  System.out.println(lista);
+   //  DetallePedido detallepedido= new DetallePedido();
+   //  DetallePedidoData dpd=new DetallePedidoData(c);
+   //  List<DetallePedido> lista = new ArrayList<>();
+   //  lista.addAll(dpd.ObtenerDetallesXPedido(1));
+    //    System.out.println(lista);
     //detallepedido=dpd.buscarDetalle(1);
     //detallepedido.setCantidad(2);
     //dpd.actualizarDetalle(detallepedido);
+    
     }
 }
