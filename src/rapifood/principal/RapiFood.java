@@ -1,8 +1,6 @@
 package rapifood.principal;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.util.*;
 import rapifood.entidades.*;
 import rapifood.modelo.*;
@@ -25,12 +23,13 @@ public class RapiFood {
         //pd.actualizarProducto(p);
         //System.out.println(p);
         //----------------------------prueba MesaData--------------------------//
-       //MesaData md = new MesaData(c);
-       Mesa m= new Mesa();
-      //m.setCapacidadMaxima(3);
-       //m.setEstadoMesa(true);
+      //MesaData md = new MesaData(c);
+       //Mesa m= new Mesa();
+       //Mesa test= new Mesa();
+      //m.setCapacidadMaxima(10);
+       //m.setEstadoMesa(false);
        //md.guardarMesa(m);
-        //md.buscarMesa(2);
+        //test= md.buscarMesa(2);
         //md.borrarMesa(1);
         //List<Mesa>lismesa=new ArrayList<>();
         //lismesa.addAll(md.obtenerMesasDisponibles());
@@ -41,15 +40,20 @@ public class RapiFood {
         //md.darAltaMesa(3);
         //m= md.buscarMesa(5);
         //--------------Prueba ReservaData----------------------
-        Reserva r = new Reserva(m,25456516, "joni", "salas", LocalDate.of(2020, 10,30), LocalTime.of(00, 00, 00),true, 3);
-        ReservaData rd = new ReservaData(c);
+        //Reserva r = new Reserva(test,5000, "juancito", "el capo", LocalDate.of(2020, 11,9), LocalTime.of(12,00,00),true, 6);
+        //ReservaData rd = new ReservaData(c); 
         //List<Reserva> lr = new ArrayList<>();
         //rd.registrarReserva(r);
+        //r=rd.buscarReserva(5);
+        //r.setNombreCliente("Juan");
+        //r.setApellidoCliente("Lopez");
+        //r.setFechaReserva(LocalDateTime.of(LocalDate.of(2020, 11,19), LocalTime.of(21,30,00)));
         //rd.actualizarReserva(r);
-        //rd.buscarReservaXFecha("'2020-11-05'");
-        System.out.println(rd.buscarReservaXFecha(LocalDate.of(2020, 11,5)));
-        //rd.darBajaReserva(2);
+        //rd.buscarReservaXFecha(LocalDate.of(2020, 11,9));
+        //System.out.println(rd.buscarReservaXFecha(LocalDate.of(2020, 11,9)));
+        //rd.darBajaReserva(5);
         //System.out.println(rd.obtenerReservasXEstado());
+        //rd.darAltaReserva(5);
 
         //-----------Prueba Mesero---------------
        // Mesero m = new Mesero(41272923,151,"Nahuel","vargas",true);

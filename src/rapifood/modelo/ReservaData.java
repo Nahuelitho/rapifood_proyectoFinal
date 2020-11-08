@@ -10,7 +10,7 @@ import rapifood.entidades.*;
 
 public class ReservaData {
     private Connection con;
-   
+    
     public ReservaData(Conexion conexion){
         con=conexion.getConnection();
     }
@@ -26,7 +26,10 @@ public class ReservaData {
             for(int i=0;i<reservaon.size();i++){
                 
                 Reserva res = reservaon.get(i);
-                if(res.getDniCliente()==reserva.getDniCliente()&& res.getFechaReserva().compareTo(reserva.getFechaReserva())==0){
+                if(res.getDniCliente()==reserva.getDniCliente()&& res.getFechaReserva().compareTo(reserva.getFechaReserva())==0 && reserva.getMesa().isEstadoMesa()){
+                    x++;
+                }
+                if(res.getMesa().getIdMesa()==reserva.getMesa().getIdMesa()&&res.getFechaReserva().compareTo(reserva.getFechaReserva())==0){
                     x++;
                 }
             }
@@ -54,7 +57,7 @@ public class ReservaData {
             //con.close();
             JOptionPane.showMessageDialog(null,"Reserva registrada con exito");
             
-            }else{JOptionPane.showMessageDialog(null,"Ya se registro una reserva con ese nombre y en esa fecha");}
+            }else{JOptionPane.showMessageDialog(null,"Ya se registro una reserva con ese DNI y en esa Fecha-Hora");}
         }catch(SQLException e){
             
             JOptionPane.showMessageDialog(null,"Error al registrar reserva");
@@ -63,7 +66,7 @@ public class ReservaData {
     
     public void actualizarReserva(Reserva reserva){    
         String sql="UPDATE reserva SET id_mesa = ?, dni_cliente = ?, nombre_cliente = ?, apellido_cliente = ?, fecha_reserva = ?,"
-                + " estado_reserva =? , fecha_ahora = ?, cantidad_cliente = ? WHERE reserva.id_reserva=?";
+                + " estado_reserva =? , fecha_ahora = ?, cantidad_cliente = ? WHERE id_reserva=?";
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -160,7 +163,7 @@ public class ReservaData {
       return reservas;  
      }
      
-     public void borrarReserva(int id){
+    public void borrarReserva(int id){
          String sql="DELETE FROM reserva WHERE reserva.id_reserva=?";
          try{
              PreparedStatement ps =con.prepareStatement(sql);
