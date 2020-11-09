@@ -99,7 +99,7 @@ public class MeseroData {
     JOptionPane.showMessageDialog(null, "Error al actualizar mesero");}
     }
     
-    public void borrarProducto(int id){
+    public void borrarMesero(int id){
     String sql="DELETE FROM mesero WHERE id_mesero=?";
     try{
     PreparedStatement ps = con.prepareStatement(sql);
