@@ -75,9 +75,9 @@ public class RapiFood {
        // mesero=meserodata.buscarMesero(1);
        //-----------Prueba pedido------------------
         //Pedido p = new Pedido(mesa,mesero,true);
-        PedidoData pedidodata = new PedidoData(c);
-       // pedidodata.buscarPedidoXMesa(LocalDate.of(2020,11,07));
-       System.out.println(pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).toString().replaceAll(",", "\n"));
+     //   PedidoData pedidodata = new PedidoData(c);
+        //System.out.println(pedidodata.obtenerTotal(2));
+     //  System.out.println(pedidodata.buscarPedidoDeMesaXFecha(LocalDate.of(2020,11,07)));
       //System.out.println(pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).values()+" "+pedidodata.buscarPedidoXMeseroTest(LocalDate.of(2020,11,07)).keySet());
        // pd.guardarPedido(p);
      //   Pedido pedido = new Pedido();

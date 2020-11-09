@@ -19,7 +19,6 @@ public class PedidoData {
      * **************************************************************************************************************************************************************************************
      */
     public void guardarPedido(Pedido pedi) {
-        int n = 0;
         try {
             String bus = "INSERT INTO pedido(id_mesa, id_mesero, estado_pedido, fecha_pedido) VALUES (?,?,?,?)";
             PreparedStatement prs = con.prepareStatement(bus, Statement.RETURN_GENERATED_KEYS);
@@ -46,7 +45,7 @@ public class PedidoData {
      */
     public List<Pedido> obtenerPedidos() {
         List<Pedido> listapedidos = new ArrayList<>();
-        Pedido pedido = null;
+        Pedido pedido ;
         String sql = "SELECT * FROM pedido";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -210,30 +209,15 @@ public class PedidoData {
         return pedidoLista;
         }
     
-    public void buscarPedidoXMesa(LocalDate fecha){
-    String sql = "SELECT p.* , dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
+    public List<Pedido> buscarPedidoDeMesaXFecha(LocalDate fecha){
+    String sql = "SELECT p.*  FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
+    Pedido pedido;
+    ArrayList<Pedido> pedidoLista = new ArrayList<>();
     try{
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setDate(1, java.sql.Date.valueOf(fecha));
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
-            System.out.println(rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getInt(3)+" "+rs.getBoolean(4)+" "+rs.getTimestamp(5)+" "+rs.getDouble(6));
-        }
-    }catch(HeadlessException | SQLException e){
-    
-    JOptionPane.showMessageDialog(null, "Pedido no encontrado");
-    }
-    }
-    public Map<Double,Pedido> buscarPedidoXMeseroTest(LocalDate fecha) {
-        Pedido pedido = null;
-        double numero;
-        Map<Double,Pedido> pedidoLista = new HashMap<>();
-        String sql = "SELECT p.* , dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setDate(1,java.sql.Date.valueOf(fecha));
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt(1));
                 Mesero mesero=buscarMesero(rs.getInt(2));
@@ -243,11 +227,31 @@ public class PedidoData {
                 pedido.setEstadoPedido(rs.getBoolean(4));
                 pedido.setFechaPedido(rs.getTimestamp(5).toLocalDateTime());
                 //JOptionPane.showMessageDialog(null, "Pedido encontrado");
-                numero=rs.getDouble(6);
-                //System.out.println(pedido);
-               // System.out.println(numero);
-               
-               pedidoLista.put(numero,pedido);
+                pedidoLista.add(pedido);
+        }
+        rs.close();
+        ps.close();
+    }catch(HeadlessException | SQLException e){
+    
+    JOptionPane.showMessageDialog(null, "Pedido no encontrado");
+    }
+    return pedidoLista;
+    }
+    public List<Double> buscarSubTotalesDeMesaDePedidosXFecha(LocalDate fecha) {
+        double numero;
+        List<Double> pedidoLista = new ArrayList<>();
+        String sql = "SELECT p.id_pedido ,m.id_mesa ,dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1,java.sql.Date.valueOf(fecha));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               numero=rs.getInt(1);
+               pedidoLista.add(numero);
+                numero=rs.getInt(2);
+               pedidoLista.add(numero);
+                numero=rs.getDouble(3);
+               pedidoLista.add(numero);
             }
             rs.close();
             ps.close();
@@ -256,5 +260,23 @@ public class PedidoData {
             JOptionPane.showMessageDialog(null, "Pedido no encontrado");
                     }
         return pedidoLista;
+        }
+        public double obtenerTotal(int id) {
+        double total=0;
+        String sql = "SELECT dp.monto_subtotal FROM pedido p, detalle_pedido dp, mesa m WHERE  p.id_pedido=?  AND p.id_mesa=m.id_mesa and dp.id_pedido=p.id_pedido ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                total+=rs.getDouble(1);
+            }
+            rs.close();
+            ps.close();
+        }
+        catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, "Total no encontrado");
+                    }
+        return total;
         }
 }
