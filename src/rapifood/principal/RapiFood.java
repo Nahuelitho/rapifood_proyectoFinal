@@ -94,7 +94,7 @@ public class RapiFood {
    //  DetallePedidoData dpd=new DetallePedidoData(c);
    //  List<DetallePedido> lista = new ArrayList<>();
    //  lista.addAll(dpd.ObtenerDetallesXPedido(1));
-    //    System.out.println(lista);
+    //  System.out.println(lista);
     //detallepedido=dpd.buscarDetalle(1);
     //detallepedido.setCantidad(2);
     //dpd.actualizarDetalle(detallepedido);

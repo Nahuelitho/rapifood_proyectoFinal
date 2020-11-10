@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="rapifood_proyectoFinal">
+  <ClassDiagramComponents>
+    <Class name="DetallePedido" package="rapifood.entidades" visibility="public" xPosition="32.0" yPosition="231.0">
+      <Fields>
+        <Field name="idDetalle" type="int" visibility="private"/>
+        <Field name="pedido" type="Pedido" visibility="private"/>
+        <Field name="producto" type="Producto" visibility="private"/>
+        <Field name="cantidad" type="int" visibility="private"/>
+        <Field name="monto" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idDetalle"/>
+          <Argument type="Pedido" name="pedido"/>
+          <Argument type="Producto" name="producto"/>
+          <Argument type="int" name="cantidad"/>
+          <Argument type="double" name="monto"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idDetalle"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Pedido" name="pedido"/>
+          <Argument type="Producto" name="producto"/>
+          <Argument type="int" name="cantidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdDetalle" returnType="int" visibility="public"/>
+        <Method name="setIdDetalle" returnType="void" visibility="public">
+          <Argument type="int" name="idDetalle"/>
+        </Method>
+        <Method name="getPedido" returnType="Pedido" visibility="public"/>
+        <Method name="setPedido" returnType="void" visibility="public">
+          <Argument type="Pedido" name="pedido"/>
+        </Method>
+        <Method name="getProducto" returnType="Producto" visibility="public"/>
+        <Method name="setProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="producto"/>
+        </Method>
+        <Method name="getCantidad" returnType="int" visibility="public"/>
+        <Method name="setCantidad" returnType="void" visibility="public">
+          <Argument type="int" name="cantidad"/>
+        </Method>
+        <Method name="getMonto" returnType="double" visibility="public"/>
+        <Method name="setMonto" returnType="void" visibility="public">
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mesa" package="rapifood.entidades" visibility="public" xPosition="628.0" yPosition="7.0">
+      <Fields>
+        <Field name="idMesa" type="int" visibility="private"/>
+        <Field name="estadoMesa" type="boolean" visibility="private"/>
+        <Field name="capacidadMaxima" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMesa"/>
+          <Argument type="boolean" name="estadoMesa"/>
+          <Argument type="int" name="capacidadMaxima"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="estadoMesa"/>
+          <Argument type="int" name="capacidadMaxima"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMesa"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setIdMesa" returnType="void" visibility="public">
+          <Argument type="int" name="idMesa"/>
+        </Method>
+        <Method name="setEstadoMesa" returnType="void" visibility="public">
+          <Argument type="boolean" name="estadoMesa"/>
+        </Method>
+        <Method name="setCapacidadMaxima" returnType="void" visibility="public">
+          <Argument type="int" name="capacidadMaxima"/>
+        </Method>
+        <Method name="getIdMesa" returnType="int" visibility="public"/>
+        <Method name="isEstadoMesa" returnType="boolean" visibility="public"/>
+        <Method name="getCapacidadMaxima" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mesero" package="rapifood.entidades" visibility="public" xPosition="600.0" yPosition="489.0">
+      <Fields>
+        <Field name="idMesero" type="int" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="cuit" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="dni"/>
+          <Argument type="int" name="cuit"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMesero"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="int" name="cuit"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMesero"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdMesero" returnType="int" visibility="public"/>
+        <Method name="setIdMesero" returnType="void" visibility="public">
+          <Argument type="int" name="idMesero"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getCuit" returnType="int" visibility="public"/>
+        <Method name="setCuit" returnType="void" visibility="public">
+          <Argument type="int" name="cuit"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pedido" package="rapifood.entidades" visibility="public" xPosition="1131.0" yPosition="20.0">
+      <Fields>
+        <Field name="mesa" type="Mesa" visibility="private"/>
+        <Field name="mesero" type="Mesero" visibility="private"/>
+        <Field name="idPedido" type="int" visibility="private"/>
+        <Field name="estadoPedido" type="boolean" visibility="private"/>
+        <Field name="fechaPedido" type="LocalDateTime" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+          <Argument type="Mesero" name="mesero"/>
+          <Argument type="int" name="idPedido"/>
+          <Argument type="boolean" name="estadoPedido"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+          <Argument type="Mesero" name="mesero"/>
+          <Argument type="boolean" name="estadoPedido"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idPedido"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Mesero" name="mesero"/>
+          <Argument type="Mesa" name="mesa"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setFechaPedido" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="fechaPedido"/>
+        </Method>
+        <Method name="getMesa" returnType="Mesa" visibility="public"/>
+        <Method name="setMesa" returnType="void" visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+        </Method>
+        <Method name="getMesero" returnType="Mesero" visibility="public"/>
+        <Method name="setMesero" returnType="void" visibility="public">
+          <Argument type="Mesero" name="mesero"/>
+        </Method>
+        <Method name="getIdPedido" returnType="int" visibility="public"/>
+        <Method name="setIdPedido" returnType="void" visibility="public">
+          <Argument type="int" name="idPedido"/>
+        </Method>
+        <Method name="isEstadoPedido" returnType="boolean" visibility="public"/>
+        <Method name="setEstadoPedido" returnType="void" visibility="public">
+          <Argument type="boolean" name="estadoPedido"/>
+        </Method>
+        <Method name="getFechaPedido" returnType="LocalDateTime" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Producto" package="rapifood.entidades" visibility="public" xPosition="1628.0" yPosition="58.0">
+      <Fields>
+        <Field name="idProducto" type="int" visibility="private"/>
+        <Field name="nombreProducto" type="String" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+        <Field name="estadoProducto" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idProducto"/>
+          <Argument type="String" name="nombreProducto"/>
+          <Argument type="double" name="precio"/>
+          <Argument type="boolean" name="estadoProducto"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreProducto"/>
+          <Argument type="double" name="precio"/>
+          <Argument type="boolean" name="estadoProducto"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idProducto"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setIdProducto" returnType="void" visibility="public">
+          <Argument type="int" name="idProducto"/>
+        </Method>
+        <Method name="setNombreProducto" returnType="void" visibility="public">
+          <Argument type="String" name="nombreProducto"/>
+        </Method>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+        <Method name="setEstadoProducto" returnType="void" visibility="public">
+          <Argument type="boolean" name="estadoProducto"/>
+        </Method>
+        <Method name="getIdProducto" returnType="int" visibility="public"/>
+        <Method name="getNombreProducto" returnType="String" visibility="public"/>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="isEstadoProducto" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reserva" package="rapifood.entidades" visibility="public" xPosition="1784.0" yPosition="621.0">
+      <Fields>
+        <Field name="idReserva" type="int" visibility="private"/>
+        <Field name="mesa" type="Mesa" visibility="private"/>
+        <Field name="dniCliente" type="int" visibility="private"/>
+        <Field name="nombreCliente" type="String" visibility="private"/>
+        <Field name="apellidoCliente" type="String" visibility="private"/>
+        <Field name="fecha" type="LocalDate" visibility="private"/>
+        <Field name="hora" type="LocalTime" visibility="private"/>
+        <Field name="fechaReserva" type="LocalDateTime" visibility="private"/>
+        <Field name="estadoReserva" type="boolean" visibility="private"/>
+        <Field name="fechaAhora" type="LocalDateTime" visibility="private"/>
+        <Field name="cantidadCliente" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idReserva"/>
+          <Argument type="Mesa" name="mesa"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="boolean" name="estadoReserva"/>
+          <Argument type="int" name="cantidadCliente"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="boolean" name="estadoReserva"/>
+          <Argument type="int" name="cantidadCliente"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idReserva"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFechaAhora" returnType="LocalDateTime" visibility="public"/>
+        <Method name="setFechaAhora" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="fechaAhora"/>
+        </Method>
+        <Method name="getIdReserva" returnType="int" visibility="public"/>
+        <Method name="setIdReserva" returnType="void" visibility="public">
+          <Argument type="int" name="idReserva"/>
+        </Method>
+        <Method name="getMesa" returnType="Mesa" visibility="public"/>
+        <Method name="setMesa" returnType="void" visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+        </Method>
+        <Method name="getDniCliente" returnType="int" visibility="public"/>
+        <Method name="setDniCliente" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getNombreCliente" returnType="String" visibility="public"/>
+        <Method name="setNombreCliente" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellidoCliente" returnType="String" visibility="public"/>
+        <Method name="setApellidoCliente" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getFecha" returnType="LocalDate" visibility="public"/>
+        <Method name="setFecha" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="getHora" returnType="LocalTime" visibility="public"/>
+        <Method name="setHora" returnType="void" visibility="public">
+          <Argument type="LocalTime" name="hora"/>
+        </Method>
+        <Method name="getFechaReserva" returnType="LocalDateTime" visibility="public"/>
+        <Method name="setFechaReserva" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="fechaHora"/>
+        </Method>
+        <Method name="isEstadoReserva" returnType="boolean" visibility="public"/>
+        <Method name="setEstadoReserva" returnType="void" visibility="public">
+          <Argument type="boolean" name="estadoReserva"/>
+        </Method>
+        <Method name="getCantidadCliente" returnType="int" visibility="public"/>
+        <Method name="setCantidadCliente" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadCliente"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Conexion" package="rapifood.modelo" visibility="public" xPosition="2214.0" yPosition="83.0">
+      <Fields>
+        <Field name="base" type="String" visibility="private" isFinal="true"/>
+        <Field name="url" type="String" visibility="private" isFinal="true"/>
+        <Field name="user" type="String" visibility="private" isFinal="true"/>
+        <Field name="pass" type="String" visibility="private" isFinal="true"/>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getConnection" returnType="Connection" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DetallePedidoData" package="rapifood.modelo" visibility="public" xPosition="2538.0" yPosition="77.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="guardarDetallePedido" returnType="void" visibility="public">
+          <Argument type="DetallePedido" name="dp"/>
+        </Method>
+        <Method name="buscarDetalle" returnType="DetallePedido" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="ObtenerDetalles" returnType="List&lt;DetallePedido&gt;" visibility="public"/>
+        <Method name="ObtenerDetallesActivo" returnType="List&lt;DetallePedido&gt;" visibility="public"/>
+        <Method name="ObtenerDetallesXPedido" returnType="List&lt;DetallePedido&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarProducto" returnType="Producto" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarPedido" returnType="Pedido" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="borrarDetalle" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizarDetalle" returnType="void" visibility="public">
+          <Argument type="DetallePedido" name="dp"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MesaData" package="rapifood.modelo" visibility="public" xPosition="153.0" yPosition="787.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="conexion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="guardarMesa" returnType="void" visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+        </Method>
+        <Method name="buscarMesa" returnType="Mesa" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerMesas" returnType="List&lt;Mesa&gt;" visibility="public"/>
+        <Method name="obtenerMesasDisponibles" returnType="List&lt;Mesa&gt;" visibility="public"/>
+        <Method name="actualizarMesa" returnType="void" visibility="public">
+          <Argument type="Mesa" name="mesa"/>
+        </Method>
+        <Method name="borrarMesa" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darBajaMesa" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darAltaMesa" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MeseroData" package="rapifood.modelo" visibility="public" xPosition="312.0" yPosition="1106.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="guardarMesero" returnType="void" visibility="public">
+          <Argument type="Mesero" name="mesero"/>
+        </Method>
+        <Method name="buscarMesero" returnType="Mesero" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerMeseros" returnType="List&lt;Mesero&gt;" visibility="public"/>
+        <Method name="actualizarMesero" returnType="void" visibility="public">
+          <Argument type="Mesero" name="mesero"/>
+        </Method>
+        <Method name="borrarMesero" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="DarDeBajaMesero" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="DarDeAltaMesero" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerMeserosActivos" returnType="List&lt;Mesero&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PedidoData" package="rapifood.modelo" visibility="public" xPosition="616.0" yPosition="1077.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="conexion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="guardarPedido" returnType="void" visibility="public">
+          <Argument type="Pedido" name="pedi"/>
+        </Method>
+        <Method name="obtenerPedidos" returnType="List&lt;Pedido&gt;" visibility="public"/>
+        <Method name="actualizarPedido" returnType="void" visibility="public">
+          <Argument type="Pedido" name="pedido"/>
+        </Method>
+        <Method name="borrarPedido" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarMesero" returnType="Mesero" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarMesa" returnType="Mesa" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarPedido" returnType="Pedido" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darBajaPedido" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darAltaPedido" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarPedidoXMesero" returnType="List&lt;Pedido&gt;" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="buscarPedidoDeMesaXFecha" returnType="List&lt;Pedido&gt;" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="buscarSubTotalesDeMesaDePedidosXFecha" returnType="List&lt;Double&gt;" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="obtenerTotal" returnType="double" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductoData" package="rapifood.modelo" visibility="public" xPosition="1410.0" yPosition="712.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="guardarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="producto"/>
+        </Method>
+        <Method name="buscarProducto" returnType="Producto" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerProductos" returnType="List&lt;Producto&gt;" visibility="public"/>
+        <Method name="obtenerProductosDisponibles" returnType="List&lt;Producto&gt;" visibility="public"/>
+        <Method name="actualizarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="producto"/>
+        </Method>
+        <Method name="borrarProducto" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="DarDeBajaProducto" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="DarDeAltaProducto" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ReservaData" package="rapifood.modelo" visibility="public" xPosition="1253.0" yPosition="1106.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Conexion" name="conexion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="registrarReserva" returnType="void" visibility="public">
+          <Argument type="Reserva" name="reserva"/>
+        </Method>
+        <Method name="actualizarReserva" returnType="void" visibility="public">
+          <Argument type="Reserva" name="reserva"/>
+        </Method>
+        <Method name="buscarReserva" returnType="Reserva" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarMesa" returnType="Mesa" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerReservas" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="borrarReserva" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darBajaReserva" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="darAltaReserva" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarReservaXFecha" returnType="List&lt;Reserva&gt;" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="obtenerReservasXEstado" returnType="List&lt;Reserva&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RapiFood" package="rapifood.principal" visibility="public" xPosition="2193.0" yPosition="387.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="rapifood.modelo.MesaData" target="rapifood.entidades.Mesa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.ReservaData" target="rapifood.entidades.Mesa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.entidades.Pedido" target="rapifood.entidades.Mesa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.entidades.Reserva" target="rapifood.entidades.Mesa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pedido" source="rapifood.entidades.DetallePedido" target="rapifood.entidades.Pedido" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.PedidoData" target="rapifood.entidades.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.ProductoData" target="rapifood.entidades.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.PedidoData" target="rapifood.entidades.Mesero" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.entidades.DetallePedido" target="rapifood.entidades.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.DetallePedidoData" target="rapifood.entidades.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mesero" source="rapifood.entidades.Pedido" target="rapifood.entidades.Mesero" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.entidades.Pedido" target="rapifood.entidades.Mesero" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.entidades.DetallePedido" target="rapifood.entidades.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mesa" source="rapifood.entidades.Reserva" target="rapifood.entidades.Mesa" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.MeseroData" target="rapifood.entidades.Mesero" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="producto" source="rapifood.entidades.DetallePedido" target="rapifood.entidades.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.DetallePedidoData" target="rapifood.entidades.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.PedidoData" target="rapifood.entidades.Mesa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mesa" source="rapifood.entidades.Pedido" target="rapifood.entidades.Mesa" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="rapifood.modelo.ReservaData" target="rapifood.entidades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
