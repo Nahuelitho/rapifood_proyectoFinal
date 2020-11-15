@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rapifood.principal.vistas.producto;
+package rapifood.principal.producto;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -147,6 +147,7 @@ public class ProductoGuardar extends javax.swing.JInternalFrame {
         Producto p= new Producto(nombre,precio,estado);
         pd.guardarProducto(p);
             }
+            
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNombreActionPerformed

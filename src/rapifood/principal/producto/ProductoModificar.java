@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rapifood.principal.vistas.producto;
+package rapifood.principal.producto;
 
 /**
  *
