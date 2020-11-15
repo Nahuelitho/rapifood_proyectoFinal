@@ -1,4 +1,4 @@
-package rapifood.principal;
+package rapifood.principal.vistas;
 
 import java.time.*;
 import java.util.*;
