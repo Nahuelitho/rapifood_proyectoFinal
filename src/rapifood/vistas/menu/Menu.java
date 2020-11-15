@@ -5,7 +5,7 @@
  */
 package rapifood.vistas.menu;
 
-import rapifood.principal.producto.ProductoGuardar;
+import rapifood.vistas.producto.ProductoGuardar;
 
 /**
  *
