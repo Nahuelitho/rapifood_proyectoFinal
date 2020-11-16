@@ -5,7 +5,10 @@
  */
 package rapifood.vistas.menu;
 
-import rapifood.vistas.producto.ProductoGuardar;
+import javax.swing.JFrame;
+import rapifood.vistas.menu.detallepedido.DetalleGuardar;
+import rapifood.vistas.menu.pruducto.ProductoGuardar;
+import rapifood.vistas.menu.pruducto.ProductoModificar;
 
 /**
  *
@@ -18,6 +21,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,8 +42,10 @@ public class Menu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -75,7 +82,16 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("jMenu5");
+        jMenu5.setText("Detalle Pedido");
+
+        jMenuItem3.setText("Guardar Detalles");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Productos");
@@ -87,6 +103,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem1);
+
+        jMenuItem2.setText("Modificar Productos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem2);
 
         jMenuBar1.add(jMenu6);
 
@@ -108,13 +132,33 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-                ProductoGuardar ig=new ProductoGuardar();
+                ProductoGuardar pg=new ProductoGuardar();
               escritorio.removeAll();
         escritorio.repaint();
-        ig.setVisible(true);
-        escritorio.add(ig);
-        escritorio.moveToFront(ig);
+        pg.setVisible(true);
+        escritorio.add(pg);
+        escritorio.moveToFront(pg);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ProductoModificar mg=new ProductoModificar();
+              escritorio.removeAll();
+        escritorio.repaint();
+        mg.setVisible(true);
+        escritorio.add(mg);
+        escritorio.moveToFront(mg);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        DetalleGuardar dg=new DetalleGuardar();
+              escritorio.removeAll();
+        escritorio.repaint();
+        dg.setVisible(true);
+        escritorio.add(dg);
+        escritorio.moveToFront(dg);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,5 +206,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

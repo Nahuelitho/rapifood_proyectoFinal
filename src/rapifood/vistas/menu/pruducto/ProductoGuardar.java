@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rapifood.vistas.producto;
+package rapifood.vistas.menu.pruducto;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;

@@ -50,7 +50,7 @@ public class MeseroData {
             m.setNombre(rs.getString("nombre_mesero"));
             m.setApellido(rs.getString("apellido_mesero"));
             m.setEstado(rs.getBoolean("estado_mesero"));
-            JOptionPane.showMessageDialog(null, "Mesero encontrado");
+          //  JOptionPane.showMessageDialog(null, "Mesero encontrado");
         }
         rs.close();
         ps.close();
@@ -94,7 +94,7 @@ public class MeseroData {
     ps.setString(4, mesero.getApellido());
     ps.setBoolean(5, mesero.isEstado());
     ps.executeUpdate();
-     JOptionPane.showMessageDialog(null, "Mesero actualizado con exito");
+    // JOptionPane.showMessageDialog(null, "Mesero actualizado con exito");
     }catch(SQLException e){
     JOptionPane.showMessageDialog(null, "Error al actualizar mesero");}
     }
@@ -106,7 +106,7 @@ public class MeseroData {
     ps.setInt(1, id);
     ps.executeUpdate();
     ps.close();
-    JOptionPane.showMessageDialog(null, "Mesero borrado con exito");    
+    //JOptionPane.showMessageDialog(null, "Mesero borrado con exito");    
     }catch(SQLException ex){
         JOptionPane.showMessageDialog(null, "Error al borrar Mesero");
     } }

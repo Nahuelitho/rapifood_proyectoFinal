@@ -33,7 +33,7 @@ public class MesaData {
         rs.close();
         ps.close();
         //con.close();
-        JOptionPane.showMessageDialog(null,"Mesa guardada");
+     //   JOptionPane.showMessageDialog(null,"Mesa guardada");
         
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"Error al guardar mesa");
@@ -57,7 +57,7 @@ public class MesaData {
                 mesa.setEstadoMesa(rs.getBoolean(2));       //2="estado_mesa"
                 mesa.setCapacidadMaxima(rs.getInt(3));      //3="capacidad_maxima"
                 
-                JOptionPane.showMessageDialog(null, "Mesa encontrada");
+     //           JOptionPane.showMessageDialog(null, "Mesa encontrada");
             }
             
         rs.close();
@@ -86,7 +86,7 @@ public class MesaData {
                 mesa.setCapacidadMaxima(rs.getInt(3));
                 mesas.add(mesa);
             }
-            JOptionPane.showMessageDialog(null, "Mesas encontradas");
+          //  JOptionPane.showMessageDialog(null, "Mesas encontradas");
          ps.close();
          rs.close();
          //con.close();
@@ -114,7 +114,7 @@ public class MesaData {
                 mesa.setCapacidadMaxima(rs.getInt(3));
                 mesas.add(mesa);
             }
-            JOptionPane.showMessageDialog(null, "Mesas encontradas");
+         //   JOptionPane.showMessageDialog(null, "Mesas encontradas");
          ps.close();
          rs.close();
          //con.close();
@@ -136,7 +136,7 @@ public class MesaData {
             ps.setInt(3, mesa.getIdMesa());
             
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Mesa Actualizada");
+          //  JOptionPane.showMessageDialog(null, "Mesa Actualizada");
             
             ps.close();
             //con.close();
@@ -154,7 +154,7 @@ public class MesaData {
           PreparedStatement ps=con.prepareStatement(sql);
           ps.setInt(1, id);
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Mesa Borrada");
+      //    JOptionPane.showMessageDialog(null, "Mesa Borrada");
           ps.close();
           //con.close();
           
@@ -170,7 +170,7 @@ public class MesaData {
           ps.setBoolean(1, false);
           ps.setInt(2, id);
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Mesa dada de baja");
+      //    JOptionPane.showMessageDialog(null, "Mesa dada de baja");
           ps.close();
           //con.close();
           
@@ -186,7 +186,7 @@ public class MesaData {
           ps.setBoolean(1, true);
           ps.setInt(2, id);
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Mesa dada de Alta");
+     //     JOptionPane.showMessageDialog(null, "Mesa dada de Alta");
           ps.close();
           //con.close();
           
