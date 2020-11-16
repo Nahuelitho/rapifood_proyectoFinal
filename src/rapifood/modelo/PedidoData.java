@@ -62,7 +62,35 @@ public class PedidoData {
                 pedido.setEstadoPedido(rs.getBoolean(4));
                 pedido.setFechaPedido(rs.getTimestamp(5).toLocalDateTime());
                 listapedidos.add(pedido);
-                JOptionPane.showMessageDialog(null, "Pedidos encontrados");
+           //     JOptionPane.showMessageDialog(null, "Pedidos encontrados");
+            }
+            rs.close();
+            ps.close();
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo encontrar el pedido");
+        }
+        return listapedidos;
+    }
+    public List<Pedido> obtenerPedidosActivos() {
+        List<Pedido> listapedidos = new ArrayList<>();
+        Pedido pedido ;
+        String sql = "SELECT * FROM pedido WHERE estado_pedido=1; ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                Mesero mesero = new Mesero();
+                pedido = new Pedido(mesa, mesero, true);
+                pedido.setIdPedido(rs.getInt(1));
+                mesa = buscarMesa(rs.getInt(2));
+                mesero = buscarMesero(rs.getInt(3));
+                pedido.setMesa(mesa);
+                pedido.setMesero(mesero);
+                pedido.setEstadoPedido(rs.getBoolean(4));
+                pedido.setFechaPedido(rs.getTimestamp(5).toLocalDateTime());
+                listapedidos.add(pedido);
+             //   JOptionPane.showMessageDialog(null, "Pedidos encontrados");
             }
             rs.close();
             ps.close();
@@ -81,7 +109,7 @@ public class PedidoData {
             ps.setBoolean(1, pedido.isEstadoPedido());
             ps.setInt(2, pedido.getIdPedido());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Pedido actualizado");
+         //   JOptionPane.showMessageDialog(null, "Pedido actualizado");
             ps.close();
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "No se pudo actualizar el pedido");
@@ -97,7 +125,7 @@ public class PedidoData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Pedido eliminado");
+       //     JOptionPane.showMessageDialog(null, "Pedido eliminado");
             ps.close();
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "No se pudo eliminar la inscripcion");
@@ -151,7 +179,7 @@ public class PedidoData {
           ps.setBoolean(1, false);
           ps.setInt(2, id);
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Pedido dado de baja");
+       //   JOptionPane.showMessageDialog(null, "Pedido dado de baja");
           ps.close();
           //con.close();
           
@@ -167,7 +195,7 @@ public class PedidoData {
           ps.setBoolean(1, true);
           ps.setInt(2, id);
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Pedido dado de Alta");
+     //     JOptionPane.showMessageDialog(null, "Pedido dado de Alta");
           ps.close();
           //con.close();
           
