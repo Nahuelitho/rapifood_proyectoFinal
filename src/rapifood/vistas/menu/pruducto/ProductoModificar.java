@@ -125,13 +125,19 @@ public class ProductoModificar extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
          int filaSeleccionada=jtProductos.getSelectedRow();
+         
         if(filaSeleccionada!=-1){
                     
             int id=(Integer) modelo.getValueAt(filaSeleccionada, 0);
-            String nom= modelo.getValueAt(filaSeleccionada, 1).toString();
+            
+            String val="[0-9.]*";
+            String nomb="[a-z \\s A-Z]*";
+            if(modelo.getValueAt(filaSeleccionada, 1).toString().matches(nomb)){
+            if(modelo.getValueAt(filaSeleccionada, 2).toString().matches(val)){
+                String nom= modelo.getValueAt(filaSeleccionada, 1).toString();
             double precio=Double.valueOf(modelo.getValueAt(filaSeleccionada, 2).toString());
             boolean b = Boolean.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
-            int x =JOptionPane.showConfirmDialog(this, "Desea cambiar la nota?","ATENCION!!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+            int x =JOptionPane.showConfirmDialog(this, "Desea cambiar Producto?","ATENCION!!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
             if(x== JOptionPane.YES_OPTION){
                 Producto i;
                 i = pd.buscarProducto(id);
@@ -143,6 +149,11 @@ public class ProductoModificar extends javax.swing.JInternalFrame {
                 borraFilasTabla();
                 cargaDatosInscriptas();
            }
+        }else{
+            JOptionPane.showMessageDialog(this, "ingrese un numero valido");
+            }}else{
+            JOptionPane.showMessageDialog(this, "ingrese un nombre valido");
+            }
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
