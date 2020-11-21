@@ -98,6 +98,7 @@ public class RapiFood {
     //detallepedido=dpd.buscarDetalle(1);
     //detallepedido.setCantidad(2);
     //dpd.actualizarDetalle(detallepedido);
-    
+    //------------------prueba img-----------------------
+    //System.out.println(getClass().getResource("/image/rapi.png"));
     }
 }

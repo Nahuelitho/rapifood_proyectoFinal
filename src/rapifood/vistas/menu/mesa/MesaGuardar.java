@@ -154,8 +154,8 @@ public class MesaGuardar extends javax.swing.JInternalFrame {
                 boolean estado=jCheckBoxActivo.isSelected();
                 Mesa m= new Mesa(estado,cantidadPersonas);
                 md.guardarMesa(m);
+                JOptionPane.showMessageDialog(null,"Mesa Registrada");
             }
-        JOptionPane.showMessageDialog(null,"Mesa Registrada");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jComboBoxCantidadPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCantidadPersonasActionPerformed

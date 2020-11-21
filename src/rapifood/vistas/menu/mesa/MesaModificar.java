@@ -174,9 +174,11 @@ public class MesaModificar extends javax.swing.JInternalFrame {
                     }
                 }else{
                     JOptionPane.showInternalMessageDialog(this, "Ingrese numeros entre 1 y 12.");
+                    cargaDatosMesa();
                 }
             }else{
                 JOptionPane.showInternalMessageDialog(this, "Ingrese numeros entre 1 y 12.");
+                cargaDatosMesa();
             }
         }
     }//GEN-LAST:event_jButtonGuardarCambiosActionPerformed
