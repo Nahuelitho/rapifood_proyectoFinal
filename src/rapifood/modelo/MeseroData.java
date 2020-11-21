@@ -50,7 +50,7 @@ public class MeseroData {
             m.setNombre(rs.getString("nombre_mesero"));
             m.setApellido(rs.getString("apellido_mesero"));
             m.setEstado(rs.getBoolean("estado_mesero"));
-          //  JOptionPane.showMessageDialog(null, "Mesero encontrado");
+        
         }
         rs.close();
         ps.close();

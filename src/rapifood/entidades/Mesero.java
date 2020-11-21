@@ -83,7 +83,7 @@ public class Mesero {
 
     @Override
     public String toString() {
-        return getNombre()+" "+ getApellido()+" "+getDni();
+        return getNombre()+" "+ getApellido();
     }
     
     

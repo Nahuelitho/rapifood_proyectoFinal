@@ -50,6 +50,6 @@ public class Mesa {
     }
     
      public String toString(){
-         return "mesa "+idMesa;
+         return String.valueOf(idMesa);
      }
 }

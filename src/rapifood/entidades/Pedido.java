@@ -47,9 +47,7 @@ public class Pedido {
         fechaPedido=LocalDateTime.of(hoy,ahora);
     }
 
-    public Pedido(Mesero mesero, Mesa mesa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     public Mesa getMesa() {
         return mesa;
@@ -90,7 +88,7 @@ public class Pedido {
     @Override
     public String toString() {
         
-        return "Pedido: " + idPedido  +","+ mesa + "," + mesero  + ", fecha: " + fechaPedido + '}';
+        return "Pedido: " + idPedido  +"  Mesa: "+ mesa + " Mesero: " + mesero ;
     }
     
     

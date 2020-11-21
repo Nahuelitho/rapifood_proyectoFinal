@@ -54,7 +54,7 @@ public class DetallePedidoData {
     public List<DetallePedido> ObtenerDetalles(){
         List<DetallePedido> lista = new ArrayList<>();
         DetallePedido dp;
-        String sql="SELECT * FROM detalle_pedido ";
+        String sql="SELECT * FROM detalle_pedido ORDER BY id_pedido ASC ";
          try{
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery();
@@ -72,12 +72,13 @@ public class DetallePedidoData {
         }
          return lista;
     }
-    public List<DetallePedido> ObtenerDetallesActivo(){
+    public List<DetallePedido> ObtenerDetallesXPedido(int id){
         List<DetallePedido> lista = new ArrayList<>();
         DetallePedido dp;
-        String sql="SELECT * FROM detalle_pedido WHERE estado_detalle=1";
+        String sql="SELECT * FROM detalle_pedido WHERE id_pedido=?  ";
          try{
              PreparedStatement ps = con.prepareStatement(sql);
+             ps.setInt(1, id);
              ResultSet rs = ps.executeQuery();
             while(rs.next()){
             dp= new DetallePedido();
@@ -93,28 +94,7 @@ public class DetallePedidoData {
         }
          return lista;
     }
-public List<DetallePedido> ObtenerDetallesXPedido(int id){
-        List<DetallePedido> lista = new ArrayList<>();
-        DetallePedido dp;
-        String sql="SELECT * FROM detalle_pedido WHERE id_pedido=?";
-         try{
-             PreparedStatement ps = con.prepareStatement(sql);
-             ps.setInt(1,id);
-             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-            dp= new DetallePedido();
-            dp.setIdDetalle(rs.getInt(1));
-            dp.setPedido(buscarPedido(rs.getInt(2)));
-            dp.setProducto(buscarProducto(rs.getInt(3)));
-            dp.setCantidad(rs.getInt(4));
-            dp.setMonto(rs.getDouble(5));
-            lista.add(dp);
-        }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Error al obtener productos");
-        }
-         return lista;
-    }    
+   
    public Producto buscarProducto(int id){
        Conexion c=new Conexion();
        ProductoData pd=new ProductoData(c);
@@ -130,7 +110,7 @@ public List<DetallePedido> ObtenerDetallesXPedido(int id){
        return p;
    }
     public void borrarDetalle(int id){
-            String sql="DELETE FROM detalle_producto WHERE id_detalle=?";
+            String sql="DELETE FROM `detalle_pedido` WHERE id_detalle=?";
          try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,id);

@@ -24,6 +24,7 @@ public class ProductoModificar extends javax.swing.JInternalFrame {
     
     public ProductoModificar() {
         initComponents();
+        this.setLocation(450, 100);
         Conexion c=new Conexion();
         pd=new ProductoData(c);
         armaCabeceraTabla();
@@ -54,6 +55,12 @@ public class ProductoModificar extends javax.swing.JInternalFrame {
                     return Boolean.class;
                 }
                 return String.class;
+            }
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                if(column==0){
+                    return false;}
+                return true;
             }
         };
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -130,7 +137,7 @@ public class ProductoModificar extends javax.swing.JInternalFrame {
                     
             int id=(Integer) modelo.getValueAt(filaSeleccionada, 0);
             
-            String val="[0-9.]*";
+            String val="^[0-9]+\\.[0-9]+$";
             String nomb="[a-z \\s A-Z]*";
             if(modelo.getValueAt(filaSeleccionada, 1).toString().matches(nomb)){
             if(modelo.getValueAt(filaSeleccionada, 2).toString().matches(val)){

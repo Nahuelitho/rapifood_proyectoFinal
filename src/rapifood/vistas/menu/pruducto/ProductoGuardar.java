@@ -21,6 +21,7 @@ public class ProductoGuardar extends javax.swing.JInternalFrame {
         initComponents();
         Conexion c=new Conexion();
         pd=new ProductoData(c);
+        this.setLocation(450, 100);
     }
 
     /**
@@ -139,15 +140,29 @@ public class ProductoGuardar extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-         int x =JOptionPane.showConfirmDialog(this, "Esta seguro?","ATENCION!!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
-            if(x== JOptionPane.YES_OPTION){
-        String nombre=jtxtNombre.getText();
-        double precio=Double.valueOf(jtxtPrecio.getText());
-        boolean estado=jcbEstado.isEnabled();
-        Producto p= new Producto(nombre,precio,estado);
-        pd.guardarProducto(p);
-            }
-            
+        if(jtxtNombre.getText().equalsIgnoreCase("")||jtxtPrecio.getText().equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(this, "Uno de los campos esta vacio!");
+        }
+        else{
+             String val="^[0-9]+\\.[0-9]+$";
+            String nomb="[a-z \\s A-Z]*";
+            if(jtxtNombre.getText().matches(nomb)){
+                if(jtxtPrecio.getText().matches(val)){  
+                        int x =JOptionPane.showConfirmDialog(this, "Esta seguro?","ATENCION!!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+                    if(x== JOptionPane.YES_OPTION){
+                        String nombre=jtxtNombre.getText();
+                        double precio=Double.valueOf(jtxtPrecio.getText());
+                        boolean estado=jcbEstado.isEnabled();
+                         Producto p= new Producto(nombre,precio,estado);
+                        pd.guardarProducto(p);
+                        }
+                                }else{
+                    JOptionPane.showMessageDialog(this, "El precio es invalido \n ej: 149.9");
+                        }
+                    }else{
+                    JOptionPane.showMessageDialog(this, "El nombre es invalido ");
+                    }
+        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNombreActionPerformed
@@ -166,10 +181,10 @@ public class ProductoGuardar extends javax.swing.JInternalFrame {
 
       
 // Verificar si la tecla pulsada no es un digito      
-      if(((caracter < '0') ||
-         (caracter > '9')) &&
-         (caracter != '\b' /*corresponde a BACK_SPACE*/)
-          && (caracter == '.' /*corresponde a BACK_SPACE*/))
+      if((!(caracter >= '0') ||
+         !(caracter <= '9')) &&
+         !(caracter == '\b' /*corresponde a BACK_SPACE*/)
+          & !(caracter == '.' ))
       {
          evt.consume();  // ignorar el evento de teclado
       }

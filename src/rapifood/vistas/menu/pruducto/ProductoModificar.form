@@ -79,7 +79,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jtProductos = new javax.swing.JTable(){&#xa;@Override&#xa;       public Class&lt;?&gt; getColumnClass(int columna) {&#xa;         &#xa;         if(columna==3){&#xa;        return Boolean.class;&#xa;       }&#xa;       return String.class;&#xa;}&#xa;};"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jtProductos = new javax.swing.JTable(){&#xa;@Override&#xa;       public Class&lt;?&gt; getColumnClass(int columna) {&#xa;         &#xa;         if(columna==3){&#xa;        return Boolean.class;&#xa;       }&#xa;       return String.class;&#xa;}&#xa;@Override&#xa;   public boolean isCellEditable(int row, int column) {&#xa;if(column==0){&#xa;        return false;}&#xa;      return true;&#xa;   }&#xa;};"/>
           </AuxValues>
         </Component>
       </SubComponents>
