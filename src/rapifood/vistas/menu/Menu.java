@@ -10,10 +10,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import rapifood.vistas.menu.detallepedido.DetalleGuardar;
 import rapifood.vistas.menu.detallepedido.DetalleGuardartest;
 import rapifood.vistas.menu.mesa.MesaGuardar;
 import rapifood.vistas.menu.mesa.MesaModificar;
+import rapifood.vistas.menu.mesero.GuardarMesero;
+import rapifood.vistas.menu.pedido.GuardarPedido;
+import rapifood.vistas.menu.pedido.PedidosXFecha;
 import rapifood.vistas.menu.pruducto.ProductoGuardar;
 import rapifood.vistas.menu.pruducto.ProductoModificar;
 import rapifood.vistas.menu.reserva.ReservaRegistrar;
@@ -54,6 +56,8 @@ public class Menu extends javax.swing.JFrame {
         };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuMesa = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -63,7 +67,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -91,7 +96,24 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 361, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Pedido");
+
+        jMenuItem7.setText("Guardar Pedido");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
+
+        jMenuItem8.setText("Cierre de pedidos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
         jMenuBar1.add(jMenu1);
 
         jMenuMesa.setText("Mesa");
@@ -148,15 +170,19 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem1);
 
-        jMenuItem2.setText("Modificar Productos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(jMenu6);
+
+        jMenu2.setText("Meseros");
+
+        jMenuItem9.setText("Guardar Meseros");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItem9ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem2);
+        jMenu2.add(jMenuItem9);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -183,16 +209,6 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(pg);
         escritorio.moveToFront(pg);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        ProductoModificar mg=new ProductoModificar();
-              escritorio.removeAll();
-        escritorio.repaint();
-        mg.setVisible(true);
-        escritorio.add(mg);
-        escritorio.moveToFront(mg);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -230,6 +246,35 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(rr);
         escritorio.moveToFront(rr);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        GuardarPedido gp=new GuardarPedido();
+        escritorio.removeAll();
+        escritorio.repaint();
+        gp.setVisible(true);
+        escritorio.add(gp);
+        escritorio.moveToFront(gp);       
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        PedidosXFecha pf=new PedidosXFecha();
+        escritorio.removeAll();
+        escritorio.repaint();
+        pf.setVisible(true);
+        escritorio.add(pf);
+        escritorio.moveToFront(pf);       
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+         GuardarMesero gm=new GuardarMesero();
+        escritorio.removeAll();
+        escritorio.repaint();
+        gm.setVisible(true);
+        escritorio.add(gm);
+        escritorio.moveToFront(gm);   
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,17 +315,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu jMenuMesa;
     // End of variables declaration//GEN-END:variables
 }

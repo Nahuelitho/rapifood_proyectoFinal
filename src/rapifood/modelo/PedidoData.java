@@ -208,10 +208,10 @@ public class PedidoData {
     
 
 
-    public List<Pedido> buscarPedidoXMesero(LocalDate fecha) {
+    public List<Pedido> buscarPedidoXFecha(LocalDate fecha) {
         Pedido pedido = null;
         ArrayList<Pedido> pedidoLista = new ArrayList<>();
-        String sql = "SELECT p.* FROM pedido p , mesero m WHERE p.id_mesero=m.id_mesero AND DATE(p.fecha_pedido)=?";
+        String sql = "SELECT * FROM pedido WHERE DATE(fecha_pedido)=? ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDate(1,java.sql.Date.valueOf(fecha));
@@ -219,8 +219,8 @@ public class PedidoData {
             while (rs.next()) {
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt(1));
-                Mesero mesero=buscarMesero(rs.getInt(2));
-                Mesa mesa=buscarMesa(rs.getInt(3));
+                Mesa mesa=buscarMesa(rs.getInt(2));
+                Mesero mesero=buscarMesero(rs.getInt(3));
                 pedido.setMesero(mesero);
                 pedido.setMesa(mesa);
                 pedido.setEstadoPedido(rs.getBoolean(4));
@@ -228,28 +228,30 @@ public class PedidoData {
                 //JOptionPane.showMessageDialog(null, "Pedido encontrado");
                 pedidoLista.add(pedido);
             }
-            rs.close();
+
             ps.close();
         }
         catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(null, "Pedido no encontrado");
+            System.out.println(e);
                     }
         return pedidoLista;
         }
     
-    public List<Pedido> buscarPedidoDeMesaXFecha(LocalDate fecha){
-    String sql = "SELECT p.*  FROM pedido p, detalle_pedido dp, mesa m WHERE dp.id_pedido=p.id_pedido AND p.id_mesa=m.id_mesa and DATE(p.fecha_pedido)=? ";
+    public List<Pedido> buscarPedidoDeMesero(LocalDate fecha,int id){
+    String sql = "SELECT * FROM pedido WHERE id_mesero=? and DATE(fecha_pedido)=?";
     Pedido pedido;
     ArrayList<Pedido> pedidoLista = new ArrayList<>();
     try{
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setDate(1, java.sql.Date.valueOf(fecha));
+        ps.setInt(1,id);
+        ps.setDate(2, java.sql.Date.valueOf(fecha));
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt(1));
-                Mesero mesero=buscarMesero(rs.getInt(2));
-                Mesa mesa=buscarMesa(rs.getInt(3));
+                Mesa mesa=buscarMesa(rs.getInt(2));
+                Mesero mesero=buscarMesero(rs.getInt(3));
                 pedido.setMesero(mesero);
                 pedido.setMesa(mesa);
                 pedido.setEstadoPedido(rs.getBoolean(4));
